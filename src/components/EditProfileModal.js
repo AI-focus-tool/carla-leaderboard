@@ -1,7 +1,8 @@
-// Edit Profile Modal Component
+// Edit Profile Modal Component (moved to components)
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Pages.css';
+import '../styles/Pages.css';
+import { API_BASE_URL } from '../config';
 
 function EditProfileModal({ isOpen, onClose, user, onUpdate }) {
   const [formData, setFormData] = useState({
@@ -72,7 +73,7 @@ function EditProfileModal({ isOpen, onClose, user, onUpdate }) {
         updateData.newPassword = formData.newPassword;
       }
 
-      const response = await axios.put(`http://localhost:5001/api/users/${user.id}`, updateData, {
+      await axios.put(`${API_BASE_URL}/api/users/${user.id}`, updateData, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

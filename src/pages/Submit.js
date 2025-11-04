@@ -1,8 +1,9 @@
-// Submit page component
+// Submit page component (moved to pages)
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Pages.css';
+import '../styles/Pages.css';
+import { API_BASE_URL } from '../config';
 
 function Submit() {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ function Submit() {
 
   const fetchSubmitCount = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:5001/api/users/${userId}/submissions`);
+      const response = await axios.get(`${API_BASE_URL}/api/users/${userId}/submissions`);
       setSubmitCount(response.data.length);
     } catch (error) {
       console.error('Error fetching submit count:', error);
@@ -60,7 +61,7 @@ function Submit() {
       formData.append('user_id', user.id);
 
       console.log('Submitting file:', file.name);
-      const response = await axios.post('http://localhost:5001/api/submissions', formData, {
+      const response = await axios.post(`${API_BASE_URL}/api/submissions`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

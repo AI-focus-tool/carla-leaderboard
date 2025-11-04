@@ -1,8 +1,9 @@
-// Profile page component
+// Profile page component (moved to pages)
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Pages.css';
+import '../styles/Pages.css';
+import { API_BASE_URL } from '../config';
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -28,8 +29,8 @@ function Profile() {
       const userId = storedUser.id;
 
       const [userResponse, submissionsResponse] = await Promise.all([
-        axios.get(`http://localhost:5001/api/users/${userId}`),
-        axios.get(`http://localhost:5001/api/users/${userId}/submissions`)
+        axios.get(`${API_BASE_URL}/api/users/${userId}`),
+        axios.get(`${API_BASE_URL}/api/users/${userId}/submissions`)
       ]);
 
       setUser(userResponse.data);

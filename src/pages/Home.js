@@ -1,7 +1,7 @@
-// Home page component
+// Home page component (moved to pages)
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Pages.css';
+import '../styles/Pages.css';
 
 function Home() {
   return (

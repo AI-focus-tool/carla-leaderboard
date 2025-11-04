@@ -1,4 +1,4 @@
-// Leaderboard page component
+// Leaderboard page component (moved to pages)
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
@@ -7,7 +7,8 @@ import {
   getSortedRowModel,
   flexRender,
 } from '@tanstack/react-table';
-import './Pages.css';
+import '../styles/Pages.css';
+import { API_BASE_URL } from '../config';
 
 function Leaderboard() {
   const [data, setData] = useState([]);
@@ -17,7 +18,7 @@ function Leaderboard() {
   const [sorting, setSorting] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/leaderboard')
+    axios.get(`${API_BASE_URL}/api/leaderboard`)
       .then(response => {
         setData(response.data);
         setLoading(false);

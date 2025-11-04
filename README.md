@@ -27,12 +27,19 @@ Opens at: `http://localhost:3000`
 
 ## Configuration
 
-Backend API URL is configured in `src/App.js`:
+Backend API base URL is centralized in `src/config.js`:
 ```javascript
-axios.get('http://localhost:5000/api/leaderboard')
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5001';
 ```
 
-Change this URL if your backend runs on a different port or domain.
+You can override it by setting an environment variable before starting the app:
+
+```pwsh
+$env:REACT_APP_API_BASE_URL = "http://localhost:5001"
+npm start
+```
+
+All API calls use `${API_BASE_URL}/api/...`.
 
 ## Available Scripts
 
@@ -43,7 +50,36 @@ Change this URL if your backend runs on a different port or domain.
 
 ## Customization
 
-Edit `src/App.js` and `src/App.css` to customize the interface.
+- App layout: `src/App.js`
+- Navigation: `src/components/Navbar.js`
+- Pages: `src/pages/**/*`
+- Styles: `src/styles/App.css` and `src/styles/Pages.css`
+
+Project structure (src):
+
+```
+src/
+	components/
+		Navbar.js
+		EditProfileModal.js
+	pages/
+		Home.js
+		Leaderboard.js
+		GetStarted.js
+		News.js
+		Profile.js
+		Submit.js
+		Auth/
+			Login.js
+			Register.js
+	styles/
+		App.css
+		Pages.css
+		index.css
+	config.js
+	App.js
+	index.js
+```
 
 See main README.md in the parent directory for full documentation.
 

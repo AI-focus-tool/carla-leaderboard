@@ -1,8 +1,9 @@
-// Register page component
+// Register page component (moved to pages/Auth)
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import './Pages.css';
+import '../../styles/Pages.css';
+import { API_BASE_URL } from '../../config';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -41,7 +42,7 @@ function Register() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5001/api/auth/register', {
+      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, {
         username: formData.username,
         email: formData.email,
         password: formData.password

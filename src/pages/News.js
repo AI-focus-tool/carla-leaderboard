@@ -1,6 +1,6 @@
-// News page component
+// News page component (moved to pages)
 import React from 'react';
-import './Pages.css';
+import '../styles/Pages.css';
 
 function News() {
   const newsItems = [

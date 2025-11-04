@@ -1,8 +1,9 @@
-// Login page component
+// Login page component (moved to pages/Auth)
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import './Pages.css';
+import '../../styles/Pages.css';
+import { API_BASE_URL } from '../../config';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -17,7 +18,7 @@ function Login() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5001/api/auth/login', {
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
         email,
         password
       });
