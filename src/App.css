@@ -1,0 +1,428 @@
+/* Style the table with borders, hover effects, and responsive design */
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Corner logo styling */
+.thinklab-logo {
+  height: 40px;
+  width: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+  margin-right: 1rem;
+}
+
+.thinklab-logo:hover {
+  opacity: 0.8;
+}
+
+/* Navigation bar styling */
+.navbar {
+  background-color: #1a2332;
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-title h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-menu li a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: block;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+  color: #61dafb;
+  background-color: rgba(97, 218, 251, 0.1);
+}
+
+/* Content area */
+.content {
+  flex: 1;
+  width: 100%;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header-section h2 {
+  font-size: 2.5rem;
+  color: #1a2332;
+  margin-bottom: 0.5rem;
+}
+
+.header-section p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* Tabs styling */
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #666;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.tab:hover {
+  color: #1a2332;
+  background-color: rgba(97, 218, 251, 0.05);
+}
+
+.tab.active {
+  color: #61dafb;
+  border-bottom-color: #61dafb;
+}
+
+/* Table container with responsive scrolling */
+.table-container {
+  background: white;
+  border-radius: 8px;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* Leaderboard table styling */
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.leaderboard-table thead {
+  background-color: #1a2332;
+  color: white;
+}
+
+.leaderboard-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.leaderboard-table th div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+  user-select: none;
+}
+
+.cursor-pointer:hover {
+  color: #61dafb;
+}
+
+.leaderboard-table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.2s ease;
+}
+
+.leaderboard-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.leaderboard-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.leaderboard-table td {
+  padding: 1rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.leaderboard-table td:first-child {
+  font-weight: 600;
+  color: #1a2332;
+}
+
+.leaderboard-table td:nth-child(2) {
+  font-weight: 500;
+  color: #61dafb;
+}
+
+/* Info section */
+.info-section {
+  text-align: center;
+  padding: 1rem;
+}
+
+.info-text {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Loading and error states */
+.loading,
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+/* Footer */
+.footer {
+  background-color: #1a2332;
+  color: #e0e0e0;
+  text-align: center;
+  padding: 2rem;
+  margin-top: auto;
+}
+
+.footer p {
+  font-size: 0.9rem;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .header-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .tabs {
+    justify-content: center;
+  }
+
+  .tab {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .content {
+    padding: 0 1rem;
+  }
+}
+
+/* User Avatar and Dropdown Styles */
+.user-menu {
+  position: relative;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.user-avatar:hover {
+  transform: scale(1.1);
+  border-color: #61dafb;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  min-width: 250px;
+  z-index: 1000;
+  margin-top: 0.5rem;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+.user-info {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #f8f9fa;
+}
+
+.user-avatar-dropdown {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.user-details {
+  flex: 1;
+}
+
+.username {
+  font-weight: 600;
+  color: #1a2332;
+  margin-bottom: 0.25rem;
+}
+
+.email {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 0;
+}
+
+/* 强制所有下拉菜单项样式完全一致 */
+.user-dropdown .dropdown-item,
+.user-dropdown a.dropdown-item,
+.user-dropdown button.dropdown-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 12px !important;
+  padding: 14px 16px !important;
+  background: none !important;
+  border: none !important;
+  width: 100% !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  color: #333 !important;
+  text-decoration: none !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+  transition: background-color 0.2s ease !important;
+  box-sizing: border-box !important;
+  min-height: 48px !important;
+  font-family: inherit !important;
+}
+
+.user-dropdown .dropdown-item:hover,
+.user-dropdown a.dropdown-item:hover,
+.user-dropdown button.dropdown-item:hover {
+  background: #f8f9fa !important;
+  color: #333 !important;
+}
+
+.user-dropdown .dropdown-item.logout,
+.user-dropdown button.dropdown-item.logout {
+  color: #d32f2f !important;
+}
+
+.user-dropdown .dropdown-item.logout:hover,
+.user-dropdown button.dropdown-item.logout:hover {
+  background: #ffebee !important;
+  color: #d32f2f !important;
+}
+
+.dropdown-icon {
+  font-size: 16px !important;
+  width: 20px !important;
+  height: 20px !important;
+  text-align: center !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+}
+
+/* 确保菜单项文字样式一致 */
+.user-dropdown .dropdown-item span:last-child {
+  flex: 1 !important;
+  text-align: left !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
